@@ -7,7 +7,7 @@ void Manager::processOrder(const Order* order) {
             foodMaker.makeFood(item);
         }
         for (const auto& item : order->getDrinkItems()) {
-            coffeeMaker.makeCoffee(item.first, item.second);
+            coffeeMaker.makeCoffee(item->getName(), dynamic_cast<Coffee*>(item)->getSugarAmount());
         }
         notifyOrderReady(order->getPatron());
     }

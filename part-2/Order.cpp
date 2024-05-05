@@ -1,6 +1,8 @@
 #include "Order.h"
 #include <iostream>
 
+Order::Order(const Patron& patron) : patron(patron) {}
+
 void Order::addFoodItem(const Food& item) {
     foodItems.push_back(item);
 }
@@ -9,11 +11,11 @@ void Order::addDrinkItem(const Drink& item) {
     drinkItems.push_back(const_cast<Drink*>(&item));
 }
 
-const std::vector<std::string>& Order::getFoodItems() const {
+const std::vector<Food>& Order::getFoodItems() const {
     return foodItems;
 }
 
-const std::vector<std::pair<std::string, int>>& Order::getDrinkItems() const {
+const std::vector<Drink*>& Order::getDrinkItems() const {
     return drinkItems;
 }
 
@@ -29,10 +31,10 @@ void Order::displayOrder() const {
     std::cout << "Order Summary:" << std::endl;
     std::cout << "Food Items:" << std::endl;
     for (const auto& item : foodItems) {
-        std::cout << "- " << item << std::endl;
+        std::cout << "- " << item.getName() << std::endl;
     }
     std::cout << "Drink Items:" << std::endl;
     for (const auto& item : drinkItems) {
-        std::cout << "- " << item.first << " with " << item.second << " sugars" << std::endl;
+        std::cout << "- " << item->getName() << std::endl;
     }
 }

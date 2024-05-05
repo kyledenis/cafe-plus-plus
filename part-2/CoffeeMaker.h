@@ -3,5 +3,5 @@
 
 class CoffeeMaker {
 public:
-    Coffee* makeCoffee(const std::string& item, int sugarAmount);
+    Coffee* makeCoffee(const std::string& type, int sugarAmount);
 };

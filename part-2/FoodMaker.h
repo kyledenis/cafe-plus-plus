@@ -3,5 +3,5 @@
 
 class FoodMaker {
 public:
-    Food* makeFood(const std::string& item);
+    Food* makeFood(const Food& item);
 };
