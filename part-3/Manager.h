@@ -3,16 +3,18 @@
 #include "FoodMaker.h"
 #include "CoffeeMaker.h"
 
-class Host;
+class Host;  // Forward declaration of Host
+class HostInterface;  // Forward declaration of HostInterface
 
 class Manager {
 public:
     Manager(Host* host);
     ~Manager();
     void processOrder(Order* order);
+    void notifyOrderReady(const Patron& patron);
 
 private:
-    std::unique_ptr<FoodMaker> foodMaker;
-    std::unique_ptr<CoffeeMaker> coffeeMaker;
     Host* host;
+    FoodMaker* foodMaker;
+    CoffeeMaker* coffeeMaker;
 };

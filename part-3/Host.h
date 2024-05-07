@@ -1,28 +1,28 @@
+// !!: why does the include statement have to be at the bottom?
+
 #pragma once
 #include <string>
 #include "Order.h"
-#include "Manager.h"
 #include "Patron.h"
-#include "FoodMaker.h"
-#include "CoffeeMaker.h"
+#include "HostInterface.h"
+#include "UserInterface.h"
 
-class Host {
+class Manager;  // Forward declaration of Manager
+
+class Host : public HostInterface {
 public:
     Host();
     ~Host();
     void startInteraction();
-    void takeOrder(Patron& patron);
-    void notifyOrderReady(const Patron& patron);
-    Order* getCurrentOrder() const;
+    void notifyOrderReady(const Patron& patron) override;
 
-    Patron* currentPatron;
 private:
     Manager* manager;
-    FoodMaker* foodMaker;
-    CoffeeMaker* coffeeMaker;
-    Order* currentOrder;
-    void displayMenu();
+    Patron* currentPatron;
+    UserInterface ui;
     void handleFoodChoice(Order& order);
     void handleDrinkChoice(Order& order);
     OrderType getOrderType();
 };
+
+#include "Manager.h"

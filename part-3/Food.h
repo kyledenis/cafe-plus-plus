@@ -1,11 +1,11 @@
 #pragma once
-#include <string>
+#include "MenuItem.h"
 
-class Food {
+class Food : public MenuItem {
 public:
     Food(const std::string& name);
     virtual ~Food() = default;
-    virtual const std::string& getName() const;
+    std::string getName() const override;
 protected:
     std::string name;
 };

@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 enum class CoffeeType {
     Latte,
@@ -9,6 +10,8 @@ enum class CoffeeType {
 enum class MilkType {
     FullCream,
     LightMilk,
-    SoyMilk,
     AlmondMilk
 };
+
+std::string CoffeeTypeToString(CoffeeType type);
+std::string MilkTypeToString(MilkType type);

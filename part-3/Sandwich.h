@@ -1,12 +1,24 @@
 #pragma once
 #include "Food.h"
 
+enum class BreadType {
+    White,
+    WholeWheat,
+    Sourdough
+};
+
+enum class FillingType {
+    HamAndCheese,
+    ChickenAndAvocado,
+    BLT
+};
+
 class Sandwich : public Food {
 public:
-    Sandwich(const std::string& name, const std::string& bread, const std::string& filling);
-    const std::string& getBread() const;
-    const std::string& getFilling() const;
+    Sandwich(const std::string& name, BreadType bread, FillingType filling);
+    BreadType getBread() const;
+    FillingType getFilling() const;
 private:
-    std::string bread;
-    std::string filling;
+    BreadType bread;
+    FillingType filling;
 };

@@ -1,11 +1,11 @@
 #pragma once
+#include "Drink.h"
 #include "BlackCoffee.h"
 #include "WhiteCoffee.h"
-#include "CoffeeTypes.h"
+#include "Tea.h"
 
 class CoffeeMaker {
 public:
-    CoffeeMaker() = default;  // Default constructor
-    void makeBlackCoffee(int sugarAmount);
-    void makeWhiteCoffee(CoffeeType type, MilkType milk, int sugarAmount);
+    CoffeeMaker() = default;
+    Drink* makeDrink(Drink* drink);
 };

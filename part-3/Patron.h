@@ -1,15 +1,17 @@
 #pragma once
 #include <string>
+#include <vector>
 
 class Order;
 
 class Patron {
 public:
     Patron(const std::string& name);
+    const std::string& getName() const;
     void placeOrder(Order* order);
-    const std::string& getName() const { return name; }
-    const Order* getCurrentOrder() const { return currentOrder; }
+    const std::vector<Order*>& getOrders() const;
+
 private:
     std::string name;
-    Order* currentOrder;
+    std::vector<Order*> orders;
 };

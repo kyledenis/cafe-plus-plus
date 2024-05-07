@@ -1,13 +1,10 @@
 #pragma once
-#include <string>
+#include "MenuItem.h"
 
-// Base class for all drinks
-class Drink {
+class Drink : public MenuItem {
 public:
     virtual ~Drink() = default;
-    virtual std::string getName() const = 0;
-
-    // Common sugar handling for all derived drinks
+    virtual std::string getName() const override = 0;
     virtual int getSugarAmount() const;
     virtual void addSugar(int amount);
 

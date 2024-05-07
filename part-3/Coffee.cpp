@@ -1,4 +1,3 @@
-// Coffee.cpp
 #include "Coffee.h"
 #include <string>
 

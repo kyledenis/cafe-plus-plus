@@ -2,6 +2,7 @@
 #include <vector>
 #include <memory>
 #include "Patron.h"
+#include "MenuItem.h"
 #include "Food.h"
 #include "Drink.h"
 
