@@ -36,17 +36,17 @@ void Host::startInteraction() {
                     break;
                 case 3:
                     if (currentOrder->isEmpty()) {
-                        std::cout << "\nYour order is empty.\nPlease add at least one item before placing an order.\n";
+                        std::cout << "\nYour order is empty.\nPlease add at least one item before placing an order." << std::endl;
                     } else {
                         manager->processOrder(currentOrder);
                         choice = 0; // Exit the inner loop
                     }
                     break;
                 case 0:
-                    std::cout << "\nThank you for visiting Cafe++! Have a great day!\n";
+                    std::cout << "\nThank you for visiting Cafe++! Have a great day!" << std::endl;
                     break;
                 default:
-                    std::cout << "Invalid choice. Please try again.\n";
+                    std::cout << "Invalid choice. Please try again." << std::endl;
                     break;
             }
         } while (choice != 0 && choice != 3);
@@ -64,9 +64,9 @@ void Host::handleFoodChoice(Order& order) {
     if (food) {
         std::string foodName = food->getName();  // Store the food name
         order.addFoodItem(std::move(food));
-        std::cout << foodName << " added to your order.\n";  // Use the stored food name
+        std::cout << foodName << " added to your order." << std::endl;  // Use the stored food name
     } else {
-        std::cout << "Invalid choice. Food item not added.\n";
+        std::cout << "Invalid choice. Food item not added." << std::endl;
     }
 }
 
@@ -76,17 +76,17 @@ void Host::handleDrinkChoice(Order& order) {
     if (drink) {
         std::string drinkName = drink->getName();  // Store the drink name
         order.addDrinkItem(std::move(drink));
-        std::cout << drinkName << " added to your order.\n";  // Use the stored drink name
+        std::cout << drinkName << " added to your order." << std::endl;  // Use the stored drink name
     } else {
-        std::cout << "Invalid choice. Drink item not added.\n";
+        std::cout << "Invalid choice. Drink item not added." << std::endl;
     }
 }
 
 OrderType Host::getOrderType() {
     int orderTypeChoice;
-    std::cout << "\nSelect order type:\n";
-    std::cout << "1: Have Here\n";
-    std::cout << "2: Takeaway\n";
+    std::cout << "\nSelect order type:" << std::endl;
+    std::cout << "1: Have Here" << std::endl;
+    std::cout << "2: Takeaway" << std::endl;
     std::cout << "Enter your choice: ";
     std::cin >> orderTypeChoice;
 
@@ -96,7 +96,7 @@ OrderType Host::getOrderType() {
         case 2:
             return OrderType::Takeaway;
         default:
-            std::cout << "Invalid order type. Defaulting to Have Here.\n";
+            std::cout << "Invalid order type. Defaulting to Have Here." << std::endl;
             return OrderType::HaveHere;
     }
 }

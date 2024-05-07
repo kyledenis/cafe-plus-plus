@@ -17,20 +17,20 @@ void Manager::notifyOrderReady(const Patron& patron) {
 }
 
 void Manager::processOrder(Order* order) {
-    std::cout << "\nProcessing order for " << order->getPatron().getName() << ":\n";
+    std::cout << "\nProcessing order for " << order->getPatron().getName() << ":" << std::endl;
 
-    std::cout << "\nFood Items:\n";
+    std::cout << "\nFood Items:" << std::endl;
     for (const auto& item : order->getFoodItems()) {
         Food* food = foodMaker->makeFood(item.get());
-        std::cout << "- " << food->getName() << "\n";
+        std::cout << "- " << food->getName() << "" << std::endl;
     }
 
-    std::cout << "\nDrink Items:\n";
+    std::cout << "\nDrink Items:" << std::endl;
     for (const auto& item : order->getDrinkItems()) {
         Drink* drink = coffeeMaker->makeDrink(item.get());
-        std::cout << "- " << drink->getName() << "\n";
+        std::cout << "- " << drink->getName() << "" << std::endl;
     }
 
-    std::cout << "Order complete.\n";
+    std::cout << "Order complete." << std::endl;
     notifyOrderReady(order->getPatron());
 }

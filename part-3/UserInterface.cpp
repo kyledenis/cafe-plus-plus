@@ -1,11 +1,11 @@
 #include "UserInterface.h"
 
 void UserInterface::displayMenu() {
-    std::cout << "\n===== Cafe++ Menu =====\n";
-    std::cout << "1: Add Food Item\n";
-    std::cout << "2: Add Drink Item\n";
-    std::cout << "3: Place Order\n";
-    std::cout << "0: Exit\n";
+    std::cout << "\n===== Cafe++ Menu =====" << std::endl;
+    std::cout << "1: Add Food Item" << std::endl;
+    std::cout << "2: Add Drink Item" << std::endl;
+    std::cout << "3: Place Order" << std::endl;
+    std::cout << "0: Exit" << std::endl;
     std::cout << "Enter your choice: ";
 }
 
@@ -22,28 +22,28 @@ int UserInterface::getChoice() {
 }
 
 int UserInterface::getFoodChoice() {
-    std::cout << "\n===== Food Items =====\n";
-    std::cout << "1: Candy Bar\n";
-    std::cout << "2: Bag of Chips\n";
-    std::cout << "3: Sandwich\n";
+    std::cout << "\n===== Food Items =====" << std::endl;
+    std::cout << "1: Candy Bar" << std::endl;
+    std::cout << "2: Bag of Chips" << std::endl;
+    std::cout << "3: Sandwich" << std::endl;
     std::cout << "Enter your choice: ";
     return getChoice();
 }
 
 int UserInterface::getDrinkChoice() {
-    std::cout << "\n===== Drink Items =====\n";
-    std::cout << "1: Black Coffee\n";
-    std::cout << "2: White Coffee\n";
-    std::cout << "3: Tea\n";
+    std::cout << "\n===== Drink Items =====" << std::endl;
+    std::cout << "1: Black Coffee" << std::endl;
+    std::cout << "2: White Coffee" << std::endl;
+    std::cout << "3: Tea" << std::endl;
     std::cout << "Enter your choice: ";
     return getChoice();
 }
 
 int UserInterface::getBreadChoice() {
-    std::cout << "\n===== Bread Types =====\n";
-    std::cout << "1: White Bread\n";
-    std::cout << "2: Whole Wheat Bread\n";
-    std::cout << "3: Sourdough Bread\n";
+    std::cout << "\n===== Bread Types =====" << std::endl;
+    std::cout << "1: White Bread" << std::endl;
+    std::cout << "2: Whole Wheat Bread" << std::endl;
+    std::cout << "3: Sourdough Bread" << std::endl;
     std::cout << "Enter your choice: ";
     int breadChoice;
     std::cin >> breadChoice;
@@ -58,14 +58,14 @@ int UserInterface::getBreadChoice() {
 }
 
 int UserInterface::getFillingChoice() {
-    std::cout << "\n===== Filling Types =====\n";
-    std::cout << "1: Ham and Cheese\n";
-    std::cout << "2: Chicken and Avocado\n";
-    std::cout << "3: BLT\n";
+    std::cout << "\n===== Filling Types =====" << std::endl;
+    std::cout << "1: Ham and Cheese" << std::endl;
+    std::cout << "2: Chicken and Avocado" << std::endl;
+    std::cout << "3: BLT" << std::endl;
     std::cout << "Enter your choice: ";
     int fillingChoice;
     std::cin >> fillingChoice;
-    
+
     while (std::cin.fail() || fillingChoice < 1 || fillingChoice > 3) {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -76,10 +76,10 @@ int UserInterface::getFillingChoice() {
 }
 
 CoffeeType UserInterface::getCoffeeTypeChoice() {
-    std::cout << "\nSelect coffee type:\n";
-    std::cout << "1: Latte\n";
-    std::cout << "2: Cappuccino\n";
-    std::cout << "3: Flat White\n";
+    std::cout << "\nSelect coffee type:" << std::endl;
+    std::cout << "1: Latte" << std::endl;
+    std::cout << "2: Cappuccino" << std::endl;
+    std::cout << "3: Flat White" << std::endl;
     std::cout << "Enter your choice: ";
     int choice = getChoice();
 
@@ -92,10 +92,10 @@ CoffeeType UserInterface::getCoffeeTypeChoice() {
 }
 
 MilkType UserInterface::getMilkTypeChoice() {
-    std::cout << "\nSelect milk type:\n";
-    std::cout << "1: Full Cream\n";
-    std::cout << "2: Light Milk\n";
-    std::cout << "3: Almond Milk\n";
+    std::cout << "\nSelect milk type:" << std::endl;
+    std::cout << "1: Full Cream" << std::endl;
+    std::cout << "2: Light Milk" << std::endl;
+    std::cout << "3: Almond Milk" << std::endl;
     std::cout << "Enter your choice: ";
     int choice = getChoice();
 
@@ -122,10 +122,10 @@ int UserInterface::getSugarAmount() {
 
 std::string UserInterface::getTeaType() {
     int teaTypeChoice;
-    std::cout << "\nSelect tea type:\n";
-    std::cout << "1: English Breakfast\n";
-    std::cout << "2: Earl Grey\n";
-    std::cout << "3: Peppermint\n";
+    std::cout << "\nSelect tea type:" << std::endl;
+    std::cout << "1: English Breakfast" << std::endl;
+    std::cout << "2: Earl Grey" << std::endl;
+    std::cout << "3: Peppermint" << std::endl;
     std::cout << "Enter your choice: ";
     teaTypeChoice = getChoice();
 
@@ -137,7 +137,7 @@ std::string UserInterface::getTeaType() {
         case 3:
             return "Peppermint";
         default:
-            std::cout << "Invalid tea choice. Using default tea.\n";
+            std::cout << "Invalid tea choice. Using default tea." << std::endl;
             return "English Breakfast";
     }
 }
