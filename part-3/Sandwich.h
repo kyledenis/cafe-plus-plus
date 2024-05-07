@@ -16,6 +16,7 @@ enum class FillingType {
 class Sandwich : public Food {
 public:
     Sandwich(const std::string& name, BreadType bread, FillingType filling);
+    std::string getName() const override;
     BreadType getBread() const;
     FillingType getFilling() const;
 private:

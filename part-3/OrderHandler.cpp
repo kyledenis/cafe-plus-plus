@@ -8,8 +8,10 @@ std::unique_ptr<Food> OrderHandler::createFood(int choice) {
         case 2:
             return std::make_unique<Food>("Bag of Chips");
         case 3: {
-            BreadType breadType = static_cast<BreadType>(ui.getBreadChoice());
-            FillingType fillingType = static_cast<FillingType>(ui.getFillingChoice());
+            int breadChoice = ui.getBreadChoice();
+            int fillingChoice = ui.getFillingChoice();
+            BreadType breadType = static_cast<BreadType>(breadChoice - 1);
+            FillingType fillingType = static_cast<FillingType>(fillingChoice - 1);
             return std::make_unique<Sandwich>("Sandwich", breadType, fillingType);
         }
         default:

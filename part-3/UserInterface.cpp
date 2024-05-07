@@ -45,16 +45,34 @@ int UserInterface::getBreadChoice() {
     std::cout << "2: Whole Wheat Bread\n";
     std::cout << "3: Sourdough Bread\n";
     std::cout << "Enter your choice: ";
-    return getChoice();
+    int breadChoice;
+    std::cin >> breadChoice;
+
+    while (std::cin.fail() || breadChoice < 1 || breadChoice > 3) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid bread choice. Please try again: ";
+        std::cin >> breadChoice;
+    }
+    return breadChoice;
 }
 
 int UserInterface::getFillingChoice() {
     std::cout << "\n===== Filling Types =====\n";
     std::cout << "1: Ham and Cheese\n";
-    std::cout << "2: Grilled Chicken and Avocado\n";
-    std::cout << "3: Bacon, Lettuce, and Tomato\n";
+    std::cout << "2: Chicken and Avocado\n";
+    std::cout << "3: BLT\n";
     std::cout << "Enter your choice: ";
-    return getChoice();
+    int fillingChoice;
+    std::cin >> fillingChoice;
+    
+    while (std::cin.fail() || fillingChoice < 1 || fillingChoice > 3) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid filling choice. Please try again: ";
+        std::cin >> fillingChoice;
+    }
+    return fillingChoice;
 }
 
 CoffeeType UserInterface::getCoffeeTypeChoice() {
