@@ -1,14 +1,21 @@
 #include "CoffeeMaker.h"
+#include "Manager.h"
 #include "BlackCoffee.h"
 #include "WhiteCoffee.h"
 #include <iostream>
 
+CoffeeMaker::CoffeeMaker(Manager& manager) : manager(manager) {}
+
 Coffee* CoffeeMaker::makeCoffee(const std::string& type, int sugarAmount) {
     std::cout << "CoffeeMaker: Preparing " << type << " with " << sugarAmount << " sugar(s)" << std::endl;
+    Coffee* preparedCoffee = nullptr;
     if (type == "BlackCoffee") {
-        return new BlackCoffee(sugarAmount);
+        preparedCoffee = new BlackCoffee(sugarAmount);
     } else if (type == "WhiteCoffee") {
-        return new WhiteCoffee(sugarAmount);
+        preparedCoffee = new WhiteCoffee(sugarAmount);
     }
-    return nullptr;
+    if (preparedCoffee != nullptr) {
+        manager.itemPrepared("CoffeeMaker: " + type + " with " + std::to_string(sugarAmount) + " sugar(s) is prepared.");
+    }
+    return preparedCoffee;
 }

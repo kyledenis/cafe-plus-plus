@@ -1,6 +1,7 @@
 #include "Patron.h"
-#include "Order.h"
 
-void Patron::placeOrder(std::unique_ptr<Order> order) {
-    currentOrder = std::move(order);
+Patron::Patron(const std::string& name) : name(name), currentOrder(nullptr) {}
+
+void Patron::placeOrder(Order* order) {
+    currentOrder = order;
 }

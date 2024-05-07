@@ -8,10 +8,13 @@ class Host;
 
 class Manager {
 public:
-    void processOrder(const Order* order);
+    Manager(Host* host);
+    void processOrder(Order* order);
     void notifyOrderReady(const Patron& patron);
+    void itemPrepared(const std::string& message);
 private:
-    FoodMaker foodMaker;
-    CoffeeMaker coffeeMaker;
+    FoodMaker* foodMaker;
+    CoffeeMaker* coffeeMaker;
     Host* host;
+    int itemsRemaining;
 };
