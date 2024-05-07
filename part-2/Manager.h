@@ -11,7 +11,6 @@ public:
     Manager(Host* host);
     void processOrder(Order* order);
     void notifyOrderReady(const Patron& patron);
-    void itemPrepared(const std::string& message);
 private:
     FoodMaker* foodMaker;
     CoffeeMaker* coffeeMaker;

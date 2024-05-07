@@ -10,15 +10,15 @@ class Host {
 public:
     Host();
     void startInteraction();
-    void takeOrder(Patron& patron);
-    void notifyOrderReady(const Patron& patron);
+    void takeOrder();
+    void notifyOrderReady();
     Order* getCurrentOrder() const;
 
-    Patron* currentPatron;
 private:
     Manager* manager;
     FoodMaker* foodMaker;
     CoffeeMaker* coffeeMaker;
+    Patron* currentPatron;
     Order* currentOrder;
     void displayMenu();
     void handleFoodChoice(Order& order);

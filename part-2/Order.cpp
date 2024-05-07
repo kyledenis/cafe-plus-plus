@@ -7,15 +7,15 @@ void Order::addFoodItem(const Food& item) {
     foodItems.push_back(item);
 }
 
-void Order::addDrinkItem(const Drink& item) {
-    drinkItems.push_back(const_cast<Drink*>(&item));
+void Order::addDrinkItem(std::unique_ptr<Drink> item) {
+    drinkItems.push_back(std::move(item));
 }
 
 const std::vector<Food>& Order::getFoodItems() const {
     return foodItems;
 }
 
-const std::vector<Drink*>& Order::getDrinkItems() const {
+const std::vector<std::unique_ptr<Drink>>& Order::getDrinkItems() const {
     return drinkItems;
 }
 
