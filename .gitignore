@@ -32,3 +32,6 @@
 *.out
 *.app
 CafePlusPlus
+
+# Miscellaneous
+collected-code.txt
